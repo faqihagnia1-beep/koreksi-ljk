@@ -92,8 +92,8 @@ ref=Math.max(ref/c,30);const f=rw.g.map(xs=>xs.map(x=>Math.max(0,1-disc(x,rw.y,r
 if(rw.t==='T'){const[v,fl]=one(f[0]);ans.push(v);flag.push(fl)}
 else if(rw.t==='M'){let m=0,fl=0;f[0].forEach((v,k)=>{if(v>.3)m|=1<<k;if(v>.15&&v<.4)fl=1});ans.push(m);flag.push(fl)}
 else{const rs=f.map(one);ans.push(rs.map(r=>r[0]));flag.push(rs.some(r=>r[1]||r[0]===-2)?1:0)}}
-let ok=0,tot=0;for(const rw of lo.rows)for(const xs of rw.g)for(const x of xs){let a=0,b=0;for(let t=0;t<8;t++){const c=Math.cos(t*.785),d=Math.sin(t*.785);a+=px(x+c*lo.r,rw.y+d*lo.r);b+=px(x+c*(lo.r+3.5),rw.y+d*(lo.r+3.5))}tot++;if(a<b*.93)ok++}
-if(ok/tot<.7){flag.fill(1);toast('Posisi lembar kurang pas, periksa semua jawaban')}
+let ok=0,tot=0;for(const rw of lo.rows)for(const xs of rw.g)for(const x of xs){let o=1e9,b=0;for(const d of[-1.5,-.75,0,.75,1.5]){let a=0;for(let t=0;t<8;t++)a+=px(x+Math.cos(t*.785)*(lo.r+d),rw.y+Math.sin(t*.785)*(lo.r+d));o=Math.min(o,a)}for(let t=0;t<8;t++)b+=px(x+Math.cos(t*.785)*(lo.r+4.5),rw.y+Math.sin(t*.785)*(lo.r+4.5));tot++;if(o<b*.96)ok++}
+if(ok/tot<.5){flag.fill(1);toast('Posisi lembar kurang pas, periksa semua jawaban')}
 return{ans,flag,reg:ok/tot}}
 function scanIm(im,e){const r=findSheets(im);if(r.err){toast(r.err);return[]}return r.sheets.map(c=>({...readSheet(im,c,e),name:''}))}
 /* ===== skor ===== */
@@ -169,7 +169,7 @@ function pasteK(){const e=cur(),tk=$('#pk').value.toUpperCase().split(/[\s,]+/).
 function sheetSVG(e){const lo=lay(e),T=new Set(ty(e));let o=`<svg viewBox="0 0 236 1000" preserveAspectRatio="none" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" font-family="Arial,sans-serif">`;
 CP.forEach(([x,y])=>o+=`<rect x="${x-10}" y="${y-10}" width="20" height="20"/>`);
 o+=`<text x="118" y="52" font-size="8" font-weight="700" text-anchor="middle">${esc((e.jenis+' · '+e.mapel+' '+e.kelas).slice(0,36))}</text><text x="40" y="78" font-size="8">Nama:</text><line x1="66" y1="79" x2="200" y2="79" stroke="#000" stroke-width=".6"/>`;
-lo.rows.forEach((rw,q)=>{o+=`<text x="14" y="${rw.y+2.5}" font-size="7">${q+1}</text>`;rw.g.forEach((xs,g)=>{if(rw.t==='B')o+=`<text x="${xs[0]-13}" y="${rw.y+2.5}" font-size="6.5">${'abcd'[g]}</text>`;xs.forEach((x,k)=>o+=`<circle cx="${x}" cy="${rw.y}" r="${lo.r}" fill="none" stroke="#000" stroke-width=".7"/><text x="${x}" y="${rw.y+2.3}" font-size="6.5" fill="#888" text-anchor="middle">${rw.t==='B'?'BS'[k]:L[k]}</text>`)})});
+lo.rows.forEach((rw,q)=>{o+=`<text x="14" y="${rw.y+2.5}" font-size="7">${q+1}</text>`;rw.g.forEach((xs,g)=>{if(rw.t==='B')o+=`<text x="${xs[0]-13}" y="${rw.y+2.5}" font-size="6.5">${'abcd'[g]}</text>`;xs.forEach((x,k)=>o+=`<circle cx="${x}" cy="${rw.y}" r="${lo.r}" fill="none" stroke="#000" stroke-width="1.1"/><text x="${x}" y="${rw.y+2.3}" font-size="6.5" fill="#888" text-anchor="middle">${rw.t==='B'?'BS'[k]:L[k]}</text>`)})});
 [[T.has('T'),'PG: hitamkan satu bulatan.'],[T.has('M'),'MCMA: boleh lebih dari satu.'],[T.has('B'),'B/S: pilih B atau S tiap pernyataan a-d.']].filter(x=>x[0]).forEach((x,i)=>o+=`<text x="118" y="${925+i*11}" font-size="6.5" text-anchor="middle">${x[1]}</text>`);
 return o+'</svg>'}
 function printSheet(f){const e=cur();if(!e)return toast('Buat ujian dulu');const[w,h]=f==='F4'?[215,330]:[210,297],v=sheetSVG(e);
