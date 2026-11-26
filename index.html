@@ -15,7 +15,7 @@ header{display:flex;align-items:center;gap:10px;padding:14px 0}header h1{font-si
 .t.c1{background:var(--c1)}.t.c2{background:var(--c2)}.t.c3{background:var(--c3)}.t.c4{background:var(--c4)}.t.f{grid-column:1/-1}
 .hero{background:var(--hero);color:#fff;display:flex;align-items:center;gap:14px}
 .ring{--p:0;width:96px;height:96px;border-radius:50%;background:conic-gradient(#7cc7f2 calc(var(--p)*1%),#ffffff26 0);display:grid;place-items:center;animation:rg 1s forwards;flex:none}
-.ring b{background:var(--hero);width:74px;height:74px;border-radius:50%;display:grid;place-items:center;font-size:24px}
+.ring b{color:#fff;background:var(--hero);width:74px;height:74px;border-radius:50%;display:grid;place-items:center;font-size:24px}
 .big{font-size:32px;font-weight:800;line-height:1}.mu{color:var(--mu);font-size:13px}
 label{display:block;font-size:13px;font-weight:700;margin:10px 0 4px}
 input,select,textarea{width:100%;padding:11px 12px;border-radius:14px;border:1px solid #0002;background:var(--card)}
@@ -124,7 +124,7 @@ r.flag[i]=0;if(id[0]!=='p')sv();const y=scrollY;render();scrollTo(0,y)}
 function nm(id,v){get(id).name=v;if(id[0]!=='p')sv()}
 /* ===== kamera / berkas ===== */
 let stream;
-async function openCam(){if(!cur())return toast('Buat ujian dulu di Pengaturan'),go('set');
+async function openCam(){mode='scan';if(!cur())return toast('Buat ujian dulu di Pengaturan'),go('set');
 if(!navigator.mediaDevices?.getUserMedia)return $('#fi').click();
 try{stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:'environment',width:{ideal:1920}}});$('#vid').srcObject=stream;$('#cam').style.display='flex';$('#vid').play()}catch(e){toast('Kamera tidak bisa dibuka, pilih dari galeri');$('#fi').click()}}
 function closeCam(){stream?.getTracks().forEach(t=>t.stop());$('#cam').style.display='none'}
