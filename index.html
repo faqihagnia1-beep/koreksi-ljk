@@ -1,0 +1,181 @@
+<!DOCTYPE html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Koreksi Lembar Jawab</title><link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#0E2A3B"><link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#E6EDF3;--tx:#0E2A3B;--mu:#5b7080;--c1:#D6E8F7;--c2:#D8F0DF;--c3:#F9DDE4;--c4:#FBF0C4;--card:#fff;--ok:#2e9e57;--no:#d8455f;--wa:#e7b82e;--hero:#0E2A3B}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b141b;--tx:#e8f0f6;--mu:#8fa5b5;--c1:#173247;--c2:#163626;--c3:#432029;--c4:#43391a;--card:#14222d;--hero:#1b4560}}
+:root[data-theme="dark"]{--bg:#0b141b;--tx:#e8f0f6;--mu:#8fa5b5;--c1:#173247;--c2:#163626;--c3:#432029;--c4:#43391a;--card:#14222d;--hero:#1b4560}
+@property --p{syntax:'<number>';initial-value:0;inherits:false}
+*{box-sizing:border-box}html,body{margin:0}body{font-family:Manrope,system-ui,sans-serif;background:var(--bg);color:var(--tx);padding:0 14px 150px;overflow-x:hidden}
+input,select,textarea,button{font:inherit;font-size:16px;color:inherit}
+header{display:flex;align-items:center;gap:10px;padding:14px 0}header h1{font-size:18px;margin:0;flex:1}
+.logo{width:40px;height:40px;border-radius:14px;background:var(--hero);color:#fff;display:grid;place-items:center;font-weight:800}
+.ib{border:0;background:var(--card);border-radius:14px;width:42px;height:42px;cursor:pointer}
+.g{display:grid;gap:12px;grid-template-columns:1fr 1fr}.t{background:var(--card);border-radius:28px;padding:16px;min-width:0}
+.t.c1{background:var(--c1)}.t.c2{background:var(--c2)}.t.c3{background:var(--c3)}.t.c4{background:var(--c4)}.t.f{grid-column:1/-1}
+.hero{background:var(--hero);color:#fff;display:flex;align-items:center;gap:14px}
+.ring{--p:0;width:96px;height:96px;border-radius:50%;background:conic-gradient(#7cc7f2 calc(var(--p)*1%),#ffffff26 0);display:grid;place-items:center;animation:rg 1s forwards;flex:none}
+.ring b{background:var(--hero);width:74px;height:74px;border-radius:50%;display:grid;place-items:center;font-size:24px}
+.big{font-size:32px;font-weight:800;line-height:1}.mu{color:var(--mu);font-size:13px}
+label{display:block;font-size:13px;font-weight:700;margin:10px 0 4px}
+input,select,textarea{width:100%;padding:11px 12px;border-radius:14px;border:1px solid #0002;background:var(--card)}
+.b{border:0;border-radius:16px;padding:12px 16px;font-weight:800;background:var(--hero);color:#fff;cursor:pointer}.b.s{background:var(--card);color:var(--tx)}.b.r{background:var(--no)}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:10px}
+.tabs{display:flex;gap:6px;margin:6px 0 12px;overflow-x:auto}.tabs button{border:0;border-radius:99px;padding:9px 14px;background:var(--card);font-weight:700;white-space:nowrap}.tabs .on{background:var(--hero);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;margin-top:10px}
+.q{border:2px solid transparent;border-radius:10px;padding:4px 0;text-align:center;font-size:12px;font-weight:800;background:#8883;cursor:pointer;user-select:none}
+.q small{display:block;font-weight:500;opacity:.7;font-size:10px}.q.ok{background:var(--ok);color:#fff}.q.no{background:var(--no);color:#fff}.q.ga{background:var(--wa);color:#000}.q.cek{border-color:var(--tx);border-style:dashed}
+.chip{display:inline-block;border-radius:99px;padding:3px 10px;font-size:12px;font-weight:800;background:#8882;margin:2px}
+.rk{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid #8882}.rk .n{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:#8883;font-weight:800;flex:none}
+.rk:nth-child(1) .n{background:#f3c53f}.rk:nth-child(2) .n{background:#c3ccd4}.rk:nth-child(3) .n{background:#d99a63}.rk .bar{height:6px;border-radius:9px;background:var(--ok);margin-top:5px}
+nav{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(14px + env(safe-area-inset-bottom,0px));background:#0E2A3B;border-radius:99px;padding:8px;display:flex;gap:6px;z-index:5}
+nav a{color:#fff;display:flex;align-items:center;gap:8px;padding:12px;border-radius:99px;text-decoration:none;font-weight:800;font-size:14px;flex:0 0 auto;transition:.3s;position:relative}nav a span.l{display:none}nav a.on{background:#2a5a7a;flex:1}nav a.on span.l{display:inline}
+nav i{background:#e7476a;border-radius:99px;font-size:10px;padding:1px 6px;font-style:normal}
+.bar2{position:fixed;left:14px;right:14px;bottom:calc(88px + env(safe-area-inset-bottom,0px));display:flex;gap:8px;z-index:4}
+#toast{position:fixed;top:12px;left:50%;transform:translate(-50%,-90px);background:var(--hero);color:#fff;padding:12px 18px;border-radius:99px;transition:.3s;z-index:9;font-weight:700;max-width:92vw}#toast.on{transform:translate(-50%,0)}
+footer{text-align:center;color:var(--mu);font-size:12px;margin:24px 0 8px}
+#cam{position:fixed;inset:0;background:#000;z-index:8;display:none;flex-direction:column}#cam video{flex:1;min-height:0;width:100%;object-fit:cover}#cam .row{justify-content:center;padding:14px;margin:0}
+.shut{width:68px;height:68px;border-radius:50%;border:5px solid #fff4;background:#fff}
+.t,.g>*{animation:in .4s both}@keyframes in{from{opacity:0;transform:translateY(8px)}}@keyframes rg{to{--p:var(--v)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.ring{--p:var(--v)}}
+@media (min-width:1100px){body{padding:0 20px 20px 276px}main,header,footer{max-width:1080px}nav{left:16px;top:96px;bottom:auto;transform:none;flex-direction:column;width:236px;border-radius:28px}nav a span.l{display:inline}nav a.on{flex:none}.bar2{left:276px;right:20px;bottom:16px}.g.d{grid-template-columns:repeat(4,1fr)}.grid{grid-template-columns:repeat(10,1fr)}}
+</style></head><body>
+<div id="toast"></div>
+<header><div class="logo" id="lg">K</div><h1>Koreksi Lembar Jawab</h1><button class="ib" id="th" aria-label="Ganti tema">◐</button></header>
+<main id="v"></main><div class="bar2" id="bar"></div>
+<footer>Aplikasi oleh Fakih Agnia, S.Pd · SMK Tri Sukses Depok</footer>
+<nav id="nav"></nav>
+<div id="cam"><video id="vid" playsinline muted></video><div class="row"><button class="b s" onclick="closeCam()">Tutup</button><button class="shut" aria-label="Potret" onclick="shoot()"></button></div></div>
+<input type="file" id="fi" accept="image/*" hidden><input type="file" id="fj" accept=".json" hidden>
+<script>
+const $=s=>document.querySelector(s),LS='koreksi-ljk-v2',L='ABCDE';
+let D;try{D=JSON.parse(localStorage.getItem(LS))}catch(e){}D=D||{exams:[],cur:null,log:[]};
+const sv=()=>localStorage.setItem(LS,JSON.stringify(D)),cur=()=>D.exams.find(e=>e.id===D.cur);
+let page='set',tab={set:0,res:0},P=[],mode='scan',draft=null,sortS='t';
+function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(toast.h);toast.h=setTimeout(()=>t.classList.remove('on'),2400)}
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+/* ===== tema ===== */
+const rt=document.documentElement,tm=localStorage.getItem('koreksi-ljk-tema');if(tm)rt.dataset.theme=tm;
+$('#th').onclick=()=>{const d=rt.dataset.theme?rt.dataset.theme==='dark':matchMedia('(prefers-color-scheme:dark)').matches;rt.dataset.theme=d?'light':'dark';localStorage.setItem('koreksi-ljk-tema',rt.dataset.theme)};
+/* ===== mesin pembaca ===== */
+const W=300,H=1000,CP=[[14,14],[286,14],[14,986],[286,986]];
+const bp=(q,k)=>[q>=25?190+k*20:45+k*20,150+q%25*30];
+function fromSrc(s,sw,sh){const k=Math.min(1,1600/Math.max(sw,sh)),w=Math.round(sw*k),h=Math.round(sh*k),c=document.createElement('canvas');c.width=w;c.height=h;const x=c.getContext('2d',{willReadFrequently:true});x.drawImage(s,0,0,w,h);const d=x.getImageData(0,0,w,h).data,g=new Uint8Array(w*h);for(let i=0;i<w*h;i++)g[i]=(d[4*i]*77+d[4*i+1]*150+d[4*i+2]*29)>>8;return{g,w,h}}
+function blobs(im){const{g,w,h}=im,I=new Float64Array((w+1)*(h+1));
+for(let y=0;y<h;y++){let r=0;for(let x=0;x<w;x++){r+=g[y*w+x];I[(y+1)*(w+1)+x+1]=I[y*(w+1)+x+1]+r}}
+const s=Math.max(15,w>>4),m=new Uint8Array(w*h);
+for(let y=0;y<h;y++){const y0=Math.max(0,y-s),y1=Math.min(h,y+s);for(let x=0;x<w;x++){const x0=Math.max(0,x-s),x1=Math.min(w,x+s),a=(I[y1*(w+1)+x1]-I[y0*(w+1)+x1]-I[y1*(w+1)+x0]+I[y0*(w+1)+x0])/((x1-x0)*(y1-y0));m[y*w+x]=g[y*w+x]<a*.55?1:0}}
+const out=[],st=[];
+for(let i=0;i<w*h;i++)if(m[i]===1){let n=0,sx=0,sy=0,x0=w,x1=0,y0=h,y1=0;m[i]=2;st.push(i);
+while(st.length){const p=st.pop(),px=p%w,py=(p/w)|0;n++;sx+=px;sy+=py;if(px<x0)x0=px;if(px>x1)x1=px;if(py<y0)y0=py;if(py>y1)y1=py;
+if(px>0&&m[p-1]===1){m[p-1]=2;st.push(p-1)}if(px<w-1&&m[p+1]===1){m[p+1]=2;st.push(p+1)}if(py>0&&m[p-w]===1){m[p-w]=2;st.push(p-w)}if(py<h-1&&m[p+w]===1){m[p+w]=2;st.push(p+w)}}
+const bw=x1-x0+1,bh=y1-y0+1;if(n>100&&bw/bh>.7&&bw/bh<1.45&&n/(bw*bh)>.72)out.push({x:sx/n,y:sy/n,s:(bw+bh)/2})}
+let best=[];for(const c of out){const grp=out.filter(o=>o.s/c.s>.7&&o.s/c.s<1.4);if(grp.length>best.length)best=grp}return best}
+function homog(src,dst){const A=[];for(let i=0;i<4;i++){const[x,y]=src[i],[u,v]=dst[i];A.push([x,y,1,0,0,0,-u*x,-u*y,u],[0,0,0,x,y,1,-v*x,-v*y,v])}
+for(let c=0;c<8;c++){let p=c;for(let r=c+1;r<8;r++)if(Math.abs(A[r][c])>Math.abs(A[p][c]))p=r;[A[c],A[p]]=[A[p],A[c]];for(let r=0;r<8;r++)if(r!==c){const f=A[r][c]/A[c][c];for(let k=c;k<9;k++)A[r][k]-=f*A[c][k]}}
+return A.slice(0,8).map((r,i)=>r[8]/r[i])}
+const ap=(h,x,y)=>{const z=h[6]*x+h[7]*y+1;return[(h[0]*x+h[1]*y+h[2])/z,(h[3]*x+h[4]*y+h[5])/z]};
+function findSheets(im){const b=blobs(im);if(!b.length||b.length%4)return{err:b.length?`Terdeteksi ${b.length} penanda, harusnya kelipatan 4. Jauhkan sedikit agar semua lembar masuk.`:'Penanda hitam tidak ditemukan. Pastikan lembar utuh dan cukup terang.'};
+b.sort((p,q)=>p.x-q.x);const r=[];for(let i=0;i<b.length;i+=4){const g=b.slice(i,i+4),pt=f=>g.reduce((a,c)=>f(c)<f(a)?c:a);
+const tl=pt(c=>c.x+c.y),br=pt(c=>-c.x-c.y),tr=pt(c=>c.y-c.x),bl=pt(c=>c.x-c.y);r.push([tl,tr,bl,br].map(c=>[c.x,c.y]))}
+return{sheets:r}}
+function readSheet(im,corn){const h=homog(CP,corn);
+const px=(x,y)=>{const[a,b]=ap(h,x,y),i=Math.round(a),j=Math.round(b);return i<0||j<0||i>=im.w||j>=im.h?255:im.g[j*im.w+i]};
+const disc=(x,y,r)=>{let s=0,n=0;for(let dx=-r;dx<=r;dx+=1.5)for(let dy=-r;dy<=r;dy+=1.5)if(dx*dx+dy*dy<=r*r){s+=px(x+dx,y+dy);n++}return s/n};
+const ans=[],flag=[];
+for(let q=0;q<50;q++){const m=[0,1,2,3,4].map(k=>{const[x,y]=bp(q,k);return disc(x,y,4)});
+let ref=0;for(let k=0;k<4;k++){const[x,y]=bp(q,k);ref+=disc(x+10,y,2)}ref=Math.max(ref/4,30);
+const f=m.map(v=>Math.max(0,1-v/ref)),ix=[0,1,2,3,4].sort((a,b)=>f[b]-f[a]),a=f[ix[0]],b=f[ix[1]];let v,fl=0;
+if(a<.15){v=-1;fl=a>.1?1:0}else if(b>.3&&a>.3)v=-2;else{v=ix[0];fl=(a<.4||b>.15)?1:0}
+ans.push(v);flag.push(fl)}
+return{ans,flag}}
+function scanIm(im){const r=findSheets(im);if(r.err){toast(r.err);return[]}return r.sheets.map(c=>({...readSheet(im,c),name:''}))}
+/* ===== skor ===== */
+function calc(e,r){let b=0,s=0,k=0;for(let i=0;i<e.n;i++){const a=r.ans[i];if(a===-1)k++;else if(e.key[i]>=0&&a===e.key[i])b++;else s++}return{b,s,k,v:Math.round(b/e.n*1000)/10}}
+function gridH(e,r,id){return`<div class="grid">${Array.from({length:e.n},(_,i)=>{const a=r.ans[i],kk=e.key[i],c=a===-2?'ga':a===-1?'':kk===a?'ok':'no';return`<div class="q ${c} ${r.flag[i]?'cek':''}" onclick="tap('${id}',${i})">${i+1}<small>${a<0?(a==-2?'ganda':'–'):L[a]}</small></div>`}).join('')}</div>`}
+function cardH(e,r,id,acts){const c=calc(e,r);return`<div class="t f"><div style="display:flex;gap:12px;align-items:center"><div class="ring" style="--v:${c.v}"><b>${c.v}</b></div><div style="flex:1;min-width:0"><input value="${esc(r.name)}" placeholder="Nama siswa" onchange="nm('${id}',this.value)" aria-label="Nama siswa"><div style="margin-top:6px"><span class="chip">Benar ${c.b}</span><span class="chip">Salah ${c.s}</span><span class="chip">Kosong ${c.k}</span><span class="chip">Cek ${r.flag.slice(0,e.n).filter(Boolean).length}</span></div></div></div>${gridH(e,r,id)}<div class="row">${acts}</div></div>`}
+const get=id=>id[0]==='p'?P[+id.slice(1)]:cur().students[+id.slice(1)];
+function tap(id,i){const r=get(id);r.ans[i]=r.ans[i]>=4||r.ans[i]===-2?-1:r.ans[i]+1;r.flag[i]=0;if(id[0]!=='p')sv();const y=scrollY;render();scrollTo(0,y)}
+function nm(id,v){get(id).name=v;if(id[0]!=='p')sv()}
+/* ===== kamera / berkas ===== */
+let stream;
+async function openCam(){if(!cur())return toast('Buat ujian dulu di Pengaturan'),go('set');
+if(!navigator.mediaDevices?.getUserMedia)return $('#fi').click();
+try{stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:'environment',width:{ideal:1920}}});$('#vid').srcObject=stream;$('#cam').style.display='flex';$('#vid').play()}catch(e){toast('Kamera tidak bisa dibuka, pilih dari galeri');$('#fi').click()}}
+function closeCam(){stream?.getTracks().forEach(t=>t.stop());$('#cam').style.display='none'}
+function shoot(){const v=$('#vid');handleIm(fromSrc(v,v.videoWidth,v.videoHeight));closeCam()}
+$('#fi').onchange=async e=>{const f=e.target.files[0];e.target.value='';if(!f)return;const b=await createImageBitmap(f);handleIm(fromSrc(b,b.width,b.height))};
+function handleIm(im){const r=scanIm(im);if(!r.length)return;
+if(mode==='key'){const k=cur();k.key=r[0].ans.map(a=>a<0?-1:a);sv();toast('Kunci terbaca, periksa lagi');mode='scan';return go('set',1)}
+P=P.concat(r);toast(`${r.length} lembar terbaca`);go('scan')}
+function pickGal(m){mode=m||'scan';if(!cur())return toast('Buat ujian dulu di Pengaturan'),go('set');$('#fi').click()}
+/* ===== simpan ===== */
+function saveP(i){const e=cur(),r=P[i];if(!r.name.trim())return toast('Isi nama siswa dulu');
+const dup=e.students.findIndex(s=>s.name.trim().toLowerCase()===r.name.trim().toLowerCase());
+if(dup>=0){if(!confirm(`Nama "${r.name}" sudah ada. Timpa hasil lama?`))return;e.students.splice(dup,1)}
+e.students.push({name:r.name.trim(),ans:r.ans,flag:r.flag,t:Date.now()});P[i]=null;P=P.filter(Boolean);D.log.unshift({id:e.id,t:Date.now(),n:r.name});D.log=D.log.slice(0,15);sv();toast('Hasil tersimpan');render()}
+function saveAll(){const n=P.filter(r=>!r.name.trim()).length;if(n)return toast(`${n} lembar belum diberi nama`);while(P.length)saveP(0)}
+/* ===== halaman ===== */
+const NAV=[['set','Pengaturan','⚙'],['scan','Pindai','📷'],['res','Hasil','📊'],['his','Riwayat','🕘']];
+function go(p,t){page=p;if(t!=null)tab[p]=t;render();scrollTo(0,0)}
+function render(){const e=cur();
+$('#nav').innerHTML=NAV.map(([k,n,i])=>`<a href="#" aria-label="${n}" class="${page===k?'on':''}" onclick="go('${k}');return false">${i}<span class="l">${n}</span>${k==='res'&&e&&e.students.length?`<i>${e.students.length}</i>`:''}</a>`).join('');
+$('#bar').innerHTML='';$('#v').innerHTML=({set:pSet,scan:pScan,res:pRes,his:pHis})[page]()}
+const empty=()=>`<div class="t c1 f" style="text-align:center"><div class="big">📝</div><p>Belum ada ujian. Buat dulu di Pengaturan, atau coba ujian contoh.</p><button class="b" onclick="go('set',0)">Ke Pengaturan</button></div>`;
+function pSet(){const t=tab.set,e=draft||cur();
+const tb=`<div class="tabs">${['Jenis Ujian','Kunci Jawaban','Lembar Jawab'].map((n,i)=>`<button class="${t===i?'on':''}" onclick="go('set',${i})">${n}</button>`).join('')}</div>`;
+if(t===0){const J=['Sumatif Ganjil','Sumatif Genap','Sumatif Tengah Semester','Ulangan Harian','Kuis','Lainnya…'];
+return tb+`<div class="t"><div class="row" style="margin:0"><select onchange="pickEx(this.value)" aria-label="Pilih ujian"><option value="">— pilih ujian —</option>${D.exams.map(x=>`<option value="${x.id}" ${!draft&&x.id===D.cur?'selected':''}>${esc(x.jenis)} · ${esc(x.mapel)} ${esc(x.kelas)}</option>`).join('')}</select><button class="b" onclick="newEx()" aria-label="Ujian baru">+</button></div>
+${e?`<label>Jenis ujian</label><select onchange="fld('jenis',this.value)">${J.map(j=>`<option ${e.jenis===j?'selected':''}>${j}</option>`).join('')}</select><label>Mata pelajaran</label><input value="${esc(e.mapel)}" onchange="fld('mapel',this.value)"><label>Kelas</label><input value="${esc(e.kelas)}" onchange="fld('kelas',this.value)"><label>Jumlah soal</label><select onchange="fld('n',+this.value)"><option ${e.n==40?'selected':''}>40</option><option ${e.n==50?'selected':''}>50</option></select>
+<div class="row"><button class="b" onclick="saveEx()">Simpan & lanjut ke Kunci</button></div>`:'<p class="mu">Tekan + untuk membuat ujian baru.</p>'}
+<div class="row"><button class="b s" onclick="demo()">Beralih ke ujian contoh</button></div></div>`}
+if(t===1){if(!cur())return tb+empty();const k=cur(),n=k.key.slice(0,k.n).filter(x=>x>=0).length;
+return tb+`<div class="t c2"><div class="big">${n} / ${k.n}</div><div style="height:8px;border-radius:9px;background:#8883;margin-top:8px"><div style="height:8px;border-radius:9px;background:var(--ok);width:${n/k.n*100}%"></div></div>
+<div class="grid">${Array.from({length:k.n},(_,i)=>`<div class="q ${k.key[i]>=0?'ok':''}" onclick="kt(${i})">${i+1}<small>${k.key[i]>=0?L[k.key[i]]:'–'}</small></div>`).join('')}</div>
+<label>Tempel kunci (mis. ABCDE…)</label><textarea rows="2" id="pk"></textarea>
+<div class="row"><button class="b s" onclick="pasteK()">Terapkan teks</button><button class="b s" onclick="pickGal('key')">Pindai lembar kunci</button><button class="b s" onclick="cur().key=[];sv();render()">Kosongkan</button></div>
+<div class="row"><button class="b" onclick="go('scan')">Simpan & Lanjut</button></div></div>`}
+return tb+`<div class="t c4"><p>Satu kertas A4/F4 dipotong menjadi 3 lembar. Tiap lembar punya 4 kotak hitam di sudut dan 50 soal (A–E). Hanya lembar yang keempat kotaknya terlihat yang dibaca.</p><p class="mu">Berkas PDF cetak ada di folder <b>lembar/</b> pada paket (lihat README).</p></div>`}
+function pickEx(id){draft=null;if(id){D.cur=id;sv()}render()}
+function newEx(){draft={id:'x'+Date.now(),jenis:'Sumatif Ganjil',mapel:'',kelas:'',n:50,key:[],students:[]};render()}
+function fld(k,v){(draft||cur())[k]=v}
+function saveEx(){if(draft){D.exams.unshift(draft);D.cur=draft.id;draft=null}sv();toast('Jenis ujian tersimpan');go('set',1)}
+function kt(i){const k=cur();k.key[i]=(k.key[i]??-1)>=4?-1:(k.key[i]??-1)+1;sv();const y=scrollY;render();scrollTo(0,y)}
+function pasteK(){const s=$('#pk').value.toUpperCase().replace(/[^A-E]/g,''),k=cur();k.key=[...s].slice(0,50).map(c=>L.indexOf(c));sv();render()}
+function demo(){let sd=7;const rn=()=>(sd=sd*16807%2147483647)/2147483647,key=Array.from({length:50},()=>Math.floor(rn()*5)),nm='Andi Budi Citra Dewi Eko Fitri Gita Hadi Indah Joko Kiki Lala Maman Nina'.split(' ');
+const e={id:'demo',jenis:'Ulangan Harian',mapel:'Contoh',kelas:'X',n:50,key,students:nm.map((n,j)=>{const a=key.map(k=>rn()<.45+j*.04?k:Math.floor(rn()*5));return{name:n,ans:a,flag:a.map(()=>0),t:Date.now()-j*1e4}})};
+D.exams=D.exams.filter(x=>x.id!=='demo');D.exams.unshift(e);D.cur='demo';draft=null;sv();toast('Ujian contoh aktif');go('res',0)}
+function pScan(){const e=cur();if(!e)return empty();
+$('#bar').innerHTML=`<button class="b" style="flex:1" onclick="openCam()">📷 Foto lagi</button><button class="b s" onclick="pickGal()" aria-label="Galeri">🖼</button>${P.length>1?`<button class="b" onclick="saveAll()">Simpan semua (${P.length})</button>`:''}`;
+return`<div class="t c1 f"><b>${esc(e.jenis)} · ${esc(e.mapel)} ${esc(e.kelas)}</b><div class="mu">Kunci terisi ${e.key.slice(0,e.n).filter(x=>x>=0).length}/${e.n}. Foto satu kertas utuh (3 lembar) atau satu lembar. Soal bertepi putus-putus perlu dicek.</div></div>
+<div class="g" style="grid-template-columns:1fr;margin-top:12px">${P.map((r,i)=>cardH(e,r,'p'+i,`<button class="b" onclick="saveP(${i})">Simpan hasil</button><button class="b s" onclick="P.splice(${i},1);render()">Buang</button>`)+`<div class="mu" style="margin:-6px 8px">Lembar ${i+1} dari ${P.length}</div>`).join('')}</div>`}
+function pRes(){const e=cur();if(!e)return empty();const S=e.students,t=tab.res;
+const tb=`<div class="tabs">${['Peringkat','Analisis soal','Detail siswa'].map((n,i)=>`<button class="${t===i?'on':''}" onclick="go('res',${i})">${n}</button>`).join('')}</div>`;
+if(!S.length)return tb+`<div class="t c1 f">Belum ada siswa. <button class="b" onclick="go('scan')">Pindai</button></div>`;
+const sc=S.map(s=>({s,c:calc(e,s)})),vs=sc.map(x=>x.c.v),av=Math.round(vs.reduce((a,b)=>a+b)/vs.length*10)/10;
+const bins=[0,0,0,0,0];vs.forEach(v=>bins[Math.min(4,Math.floor(v/20))]++);const mx=Math.max(...bins);
+const sum=`<div class="g d"><div class="t hero" style="grid-column:span 2"><div class="ring" style="--v:${av}"><b>${av}</b></div><div><div class="mu" style="color:#fff9">Rata-rata</div><b>${S.length} siswa</b></div></div>
+<div class="t c2"><div class="mu">Tertinggi</div><div class="big">${Math.max(...vs)}</div></div><div class="t c3"><div class="mu">Terendah</div><div class="big">${Math.min(...vs)}</div></div>
+<div class="t c4" style="grid-column:1/-1"><div class="mu">Sebaran nilai</div><div style="display:flex;gap:8px;align-items:flex-end;height:70px;margin-top:6px">${bins.map((b,i)=>`<div style="flex:1;text-align:center;font-size:11px"><div style="height:${b/mx*46}px;background:var(--hero);border-radius:8px 8px 3px 3px;min-height:3px"></div>${i*20}–${i*20+20-(i<4?1:0)}<br><b>${b}</b></div>`).join('')}</div></div></div>`;
+let body='';
+if(t===0)body=`<div class="t f" style="margin-top:12px">${sc.slice().sort((a,b)=>b.c.v-a.c.v).map((x,i)=>`<div class="rk"><div class="n">${i+1}</div><div style="flex:1;min-width:0"><b>${esc(x.s.name)}</b><div class="mu">B ${x.c.b} · S ${x.c.s} · K ${x.c.k}</div><div class="bar" style="width:${x.c.v}%"></div></div><div class="big" style="font-size:22px">${x.c.v}</div></div>`).join('')}<div class="row"><button class="b" onclick="csv()">Ekspor CSV</button></div></div>`;
+if(t===1){const p=Array.from({length:e.n},(_,i)=>({i,p:Math.round(S.filter(s=>s.ans[i]===e.key[i]).length/S.length*100)})),cat=x=>x>=70?'Mudah':x>=40?'Sedang':'Sulit';
+body=`<div class="t f" style="margin-top:12px"><span class="chip">Mudah ${p.filter(x=>x.p>=70).length}</span><span class="chip">Sedang ${p.filter(x=>x.p>=40&&x.p<70).length}</span><span class="chip">Sulit ${p.filter(x=>x.p<40).length}</span>${p.slice().sort((a,b)=>a.p-b.p).map(x=>`<div class="rk"><div class="n">${x.i+1}</div><div style="flex:1"><div class="bar" style="width:${x.p}%;margin:0"></div></div><b>${x.p}%</b><span class="mu">${cat(x.p)}</span></div>`).join('')}</div>`}
+if(t===2){const o=S.map((s,i)=>i).sort((a,b)=>sortS==='n'?S[a].name.localeCompare(S[b].name):sortS==='v'?calc(e,S[b]).v-calc(e,S[a]).v:S[b].t-S[a].t);
+body=`<div class="row"><select onchange="sortS=this.value;render()"><option value="t">Terbaru</option><option value="v" ${sortS==='v'?'selected':''}>Nilai</option><option value="n" ${sortS==='n'?'selected':''}>Nama</option></select></div><div class="g" style="grid-template-columns:1fr;margin-top:12px">${o.map(i=>cardH(e,S[i],'s'+i,`<button class="b r" onclick="if(confirm('Hapus siswa ini?')){cur().students.splice(${i},1);sv();render()}">Hapus</button>`)).join('')}</div>`}
+return tb+sum+body}
+function csv(){const e=cur(),h=['Nama','Benar','Salah','Kosong','Nilai',...Array.from({length:e.n},(_,i)=>'S'+(i+1))],r=e.students.map(s=>{const c=calc(e,s);return[s.name,c.b,c.s,c.k,c.v,...s.ans.slice(0,e.n).map(a=>a<0?'':L[a])]});
+const t=[h,...r].map(x=>x.map(v=>`"${String(v).replace(/"/g,'""')}"`).join(',')).join('\n'),a=document.createElement('a');a.href=URL.createObjectURL(new Blob(['\ufeff'+t],{type:'text/csv'}));a.download=`hasil-${e.mapel||'ujian'}.csv`;a.click()}
+let hq='';
+function pHis(){const q=hq.toLowerCase(),X=D.exams.filter(e=>(e.mapel+e.kelas+e.jenis).toLowerCase().includes(q));
+return`<div class="t"><input placeholder="Cari mapel / kelas / jenis" value="${esc(hq)}" oninput="hq=this.value;render();const i=document.querySelector('input');i.focus();i.setSelectionRange(99,99)">
+${X.map(e=>`<div class="rk" style="display:block"><b>${esc(e.jenis)} · ${esc(e.mapel)} ${esc(e.kelas)}</b><div class="mu">${e.students.length} lembar dikoreksi</div><div class="row"><button class="b s" onclick="D.cur='${e.id}';sv();go('res',0)">Buka hasil</button><button class="b s" onclick="D.cur='${e.id}';sv();go('scan')">Pindai lagi</button><button class="b s" onclick="cp('${e.id}')">Salin</button><button class="b r" onclick="if(confirm('Hapus ujian beserta hasilnya?')){D.exams=D.exams.filter(x=>x.id!=='${e.id}');if(D.cur==='${e.id}')D.cur=null;sv();render()}">Hapus</button></div></div>`).join('')||'<p class="mu">Belum ada ujian.</p>'}</div>
+<div class="t c4" style="margin-top:12px"><b>Aktivitas terbaru</b>${D.log.map(l=>`<div class="rk" onclick="D.cur='${l.id}';go('res',0)" style="cursor:pointer"><span>${esc(l.n)}</span><span class="mu" style="margin-left:auto">${new Date(l.t).toLocaleString('id-ID')}</span></div>`).join('')||'<p class="mu">Belum ada.</p>'}</div>
+<div class="t c1" style="margin-top:12px"><b>Cadangan data</b><div class="row"><button class="b" onclick="bk()">Ekspor</button><button class="b s" onclick="$('#fj').click()">Pulihkan</button></div></div>`}
+function cp(id){const e=JSON.parse(JSON.stringify(D.exams.find(x=>x.id===id)));e.id='x'+Date.now();e.students=[];e.mapel+=' (salinan)';D.exams.unshift(e);D.cur=e.id;sv();toast('Ujian disalin');render()}
+function bk(){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(D)],{type:'application/json'}));a.download='cadangan-koreksi-ljk.json';a.click()}
+$('#fj').onchange=async e=>{const f=e.target.files[0];e.target.value='';if(!f)return;try{const x=JSON.parse(await f.text());if(!Array.isArray(x.exams))throw 0;if(!confirm('Ganti semua data dengan cadangan ini?'))return;D=x;D.log=D.log||[];sv();toast('Data dipulihkan');render()}catch(_){toast('Berkas cadangan tidak valid')}};
+$('#lg').onclick=()=>go('set',0);
+render();
+if('serviceWorker'in navigator){navigator.serviceWorker.register('sw.js');let r=0;navigator.serviceWorker.addEventListener('controllerchange',()=>{if(!r&&!$('#cam').style.display.includes('flex')){r=1;location.reload()}})}
+</script></body></html>
